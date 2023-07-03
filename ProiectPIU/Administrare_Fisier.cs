@@ -11,7 +11,8 @@ namespace ProiectPIU
     public class Administrare_Fisier
     {
         private string numeFisier = "Produs.txt";
-        private string numeFisier1 = "Comanda.txt";
+        private string numeFisier1 = "Client.txt";
+        private string numeFisier2 = "Comanda.txt";
         public Administrare_Fisier(string numeFisier)
         {
             this.numeFisier = numeFisier;
@@ -21,15 +22,23 @@ namespace ProiectPIU
 
         public void AddProdus(Produs produs)
         {
-            using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier, true))
+            using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier2, true))
             {
                 streamWriterFisierText.WriteLine(produs.ConversieLaSir_PentruFisier());
             }
         }
 
-        public void AddComanda(Comanda comanda)
+        public void AddClient(Client client)
         {
             using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier1, true))
+            {
+                streamWriterFisierText.WriteLine(client.ConversieLaSir_PentruFisier());
+            }
+        }
+
+        public void AddComanda(Comanda comanda)
+        {
+            using (StreamWriter streamWriterFisierText = new StreamWriter(numeFisier2, true))
             {
                 streamWriterFisierText.WriteLine(comanda.ConversieLaSir_PentruFisier());
             }

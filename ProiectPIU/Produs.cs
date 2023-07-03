@@ -31,20 +31,32 @@ namespace ProiectPIU
             Nume = nume;
             Descriere = descriere;
             Pret = pret;
-            Pret_total = pret * cantitate;
             Cantitate = cantitate;
+            Pret_total = pret * cantitate;
         }
 
         //Constructor pentru lucru cu fisier
+        //public Produs(string linieFisier) 
+        //{
+        //    var dateFisier = linieFisier.Split(SEPARATOR_FISIER);
+        //    Id = Convert.ToInt32(dateFisier[ID]);
+        //    Nume = dateFisier[NUME];
+        //    Descriere = dateFisier[DESCRIERE];
+        //    Pret = Convert.ToInt32(dateFisier[PRET]);
+        //    Cantitate = Convert.ToInt32(dateFisier[CANTITATE]);
+        //    Pret_total = Convert.ToInt32(dateFisier[PRET_TOTAL]);
+        //}
+
         public Produs(string linieFisier)
         {
             var dateFisier = linieFisier.Split(SEPARATOR_FISIER);
-            Id = Convert.ToInt32(dateFisier[ID]);
-            Nume = dateFisier[NUME];
-            Descriere = dateFisier[DESCRIERE];
-            Pret = Convert.ToInt32(dateFisier[PRET]);
-            Cantitate = Convert.ToInt32(dateFisier[CANTITATE]);
-            Pret_total = Convert.ToInt32(dateFisier[PRET_TOTAL]);
+            Id = Convert.ToInt32(dateFisier[0]);
+            Nume = dateFisier[1];
+            Descriere = dateFisier[2];
+            Pret = Convert.ToDecimal(dateFisier[3]);
+            Cantitate = Convert.ToInt32(dateFisier[5]);
+            Pret_total = Pret * Cantitate;
+           
         }
 
         public override string ToString()
